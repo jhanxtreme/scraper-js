@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEB SCRAPER - JAVASCRIPT</title>
+</head>
+<body>
+
+<div id="results">
+
+</div>
+
+
+<script src="app.js"></script>
+<script>
+
+console.log('Loading data from external source...');
+
+ez.ajax({
+	url: 'https://www.google.com.ph/',
+	method: 'GET',
+	result: function(res){
+
+		var text =  res.responseText;
+		ez.scrape({
+			data: text,
+			results: function(res){
+				console.log('RESULT', res);
+				console.log('DONE');
+			}
+		});
+
+	}
+});
+
+
+</script>
+
+</body>
+</html>
